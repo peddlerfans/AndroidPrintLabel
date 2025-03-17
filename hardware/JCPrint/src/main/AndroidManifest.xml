@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--蓝⽛打印机权限-->
+
+    <!--蓝⽛权限-->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <!-- android 5以上 android 12以下，蓝⽛搜索需要位置权限-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!--android 12 需要申请蓝⽛搜索权限、连接权限 ⽆需申请位置权限-->
+    <!-- WIFI打印机权限-->
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- WIFI搜索给出位置权限    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!--如需获取当前⼿机连接的WIFI 名称需要该权限    -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+</manifest>
