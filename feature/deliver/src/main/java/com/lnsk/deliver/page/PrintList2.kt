@@ -68,7 +68,6 @@ fun PrintList2(navController: NavHostController, viewModel: DeliverViewModel) {
                 .padding(horizontal = 10.dp)) {
                 Text("重新扫描设备")
             }
-
         }
 
         PrintBitmapList(viewModel)

@@ -9,6 +9,10 @@ data class Deliver(
     val type: Int = 0  // 添加默认值
 )
 
+data class OrderState(
+    val orderNo:String?
+)
+
 
 data class Delivers(
     val orderNo: String,

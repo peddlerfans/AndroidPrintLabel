@@ -4,6 +4,7 @@ import com.core.api.BaseResponse
 import com.lnsk.deliver.api.bean.DeliverBean
 import com.lnsk.deliver.api.bean.OrderBean
 import com.lnsk.deliver.api.model.Deliver
+import com.lnsk.deliver.api.model.OrderState
 import retrofit2.http.Body
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -32,4 +33,7 @@ interface ApiService {
 
     @POST("manage/deliver/getLabelInfo")
     suspend fun getLabelInfo(@Body deliver: Deliver): BaseResponse<DeliverBean>
+
+    @POST("/manage/order/send")
+    suspend fun setOrderState(@Body deliver: OrderState): BaseResponse<DeliverBean>
 }

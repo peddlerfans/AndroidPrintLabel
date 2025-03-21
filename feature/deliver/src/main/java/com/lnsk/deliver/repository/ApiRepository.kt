@@ -6,13 +6,14 @@ import com.lnsk.deliver.api.ApiService
 import com.lnsk.deliver.api.bean.DeliverBean
 import com.lnsk.deliver.api.bean.OrderBean
 import com.lnsk.deliver.api.model.Deliver
+import com.lnsk.deliver.api.model.OrderState
 
 object ApiRepository {
     private val service by lazy {
 //        Api.create<ApiService>(url = "https://apifoxmock.com/m1/5699091-5380170-default/")
 //        Api.create<ApiService>(url = "http://192.168.31.56:8000")
         // 测试地址
-//        Api.create<ApiService>(url = "http://en_depin_admin.youyong.org.cn")
+//        Api.create<ApiService>(url = "http://testadmin.lnsk.top")
 
         // 正式地址
         Api.create<ApiService>(url = "https://admin.ccarbon.online")
@@ -34,6 +35,11 @@ object ApiRepository {
     suspend fun getLabelInfo(deliver: Deliver): Result<BaseResponse<DeliverBean>> {
         return kotlin.runCatching {
             service.getLabelInfo(deliver)
+        }
+    }
+    suspend fun setState(deliver: OrderState): Result<BaseResponse<DeliverBean>> {
+        return kotlin.runCatching {
+            service.setOrderState(deliver)
         }
     }
 }

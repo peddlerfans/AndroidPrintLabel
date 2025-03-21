@@ -12,6 +12,7 @@ import com.hardware.ble.BluetoothUtil
 import com.lnsk.deliver.api.bean.DeliverBean
 import com.lnsk.deliver.api.bean.OrderBean
 import com.lnsk.deliver.api.model.Deliver
+import com.lnsk.deliver.api.model.OrderState
 import com.lnsk.deliver.repository.ApiRepository
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
@@ -35,6 +36,15 @@ class DeliverViewModel : SharedViewModel() {
         deliverUiState = UiState.Loading
         showGenerateLabel = false
         bluetoothLeScanner()
+    }
+
+    fun setOrderState(orderNo: OrderState){
+        viewModelScope.launch {
+            ApiRepository.setState(orderNo).onSuccess {
+
+            }
+        }
+
     }
 
     fun bluetoothLeScanner() {
@@ -161,7 +171,6 @@ class DeliverViewModel : SharedViewModel() {
             ApiRepository.getLabelInfo(deliver)
         }
     }
-
 }
 
 

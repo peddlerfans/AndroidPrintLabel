@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -38,6 +39,7 @@ import coil.compose.AsyncImage
 import com.hardware.print.jc.util.PrintUtil
 import com.hardware.print.jc.util.PrintUtil.ERROR_MESSAGES
 import com.lnsk.deliver.PrintLabel
+import com.lnsk.deliver.api.model.OrderState
 import com.lnsk.deliver.viewmodel.DeliverViewModel
 import com.lnsk.deliver.viewmodel.UiState
 
@@ -78,7 +80,8 @@ fun PrintList(navController: NavHostController, viewModel: DeliverViewModel) {
                 .clip(RoundedCornerShape(8.dp))
                 .fillMaxWidth()
                 .background(Color.White)
-                .padding(10.dp)
+                .padding(10.dp),
+            horizontalArrangement = Arrangement.Start // 设置水平排列方式为 Start
         ) {
             AsyncImage(
                 viewModel.seekingDevice!!.image,
@@ -96,10 +99,22 @@ fun PrintList(navController: NavHostController, viewModel: DeliverViewModel) {
             ) {
                 Text("${viewModel.seekingDevice!!.productId}")
                 Text(viewModel.seekingDevice!!.productName)
+            }
+            Button(
+                onClick = {
+                    viewModel.setOrderState(
+                        OrderState(viewModel.orderNo)
+                    )
+                    Log.e("TAG1111111", "${viewModel.orderNo}")
+                },
+                modifier = Modifier
+                    .padding(horizontal = 0.1.dp)
+                    .size(200.dp, 60.dp) // 设置按钮的大小
 
+            ) {
+                Text("发货")
             }
         }
-
         PrintBitmapList(viewModel)
     }
 }

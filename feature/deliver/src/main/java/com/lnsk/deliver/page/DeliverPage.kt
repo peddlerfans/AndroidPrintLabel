@@ -93,8 +93,9 @@ fun DeliverPage(
             Box(Modifier.size(18.dp).background(color))
 
             Button({
-//                PrintUtil.connectBluetoothPrinter("28:0B:12:E9:C4:87")
                 PrintUtil.connectBluetoothPrinter("12:28:0B:E9:C4:87")
+//                PrintUtil.connectBluetoothPrinter("12:08:02:97:23:59")
+
             }) {
                 Text("连接到打印机")
             }
